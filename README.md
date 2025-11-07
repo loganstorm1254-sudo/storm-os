@@ -2,7 +2,7 @@
 
 **The main repo for WireOS.**
 
-WireOS serves as a nice, stable, and maintained base for Vector CFW.
+WireOS serves as a nice, stable, and maintained base for custom Anki Vector firmware.
 
 This builds the OS, the /anki programs (`wire-os-victor`), and puts it all into a final OTA. This repo can be thought of as `wire-os-oelinux`.
 
@@ -14,18 +14,9 @@ This builds the OS, the /anki programs (`wire-os-victor`), and puts it all into 
 
 Yocto is the toolkit this repo uses to create OS images. Yocto, in of itself, is not a distribution. It's a toolkit which helps one create replicable OS builds with only little difficulty.
 
-This is based off of the leaked [vicos-oelinux](https://github.com/kercre123/vicos-oelinux). Qualcomm provided Anki with a Yocto BSP - that's what that is. It is terribly old. I updated everything so it works with the latest Yocto tools.
+This is based off of the leaked [vicos-oelinux](https://github.com/kercre123/vicos-oelinux) repo. Qualcomm provided Anki with a Yocto BSP - that's what vicos-oelinux is. It is terribly old. I updated everything so it works with the latest Yocto layers.
 
-## Submodules
-
-- /poky/poky -> [yoctoproject/poky](https://github.com/yoctoproject/poky) (master)
-- /poky/meta-openembedded -> [openembedded/meta-openembedded](https://github.com/openembedded/meta-openembedded) (master)
-- /anki/victor -> [wire-os-victor](https://github.com/os-vector/wire-os-victor) (main)
-  - Where all the personality code lives - the README there has more info
-- /anki/wired -> [wired](https://github.com/os-vector/wired) (main)
-  - Little webserver with configuration options
-
-## Prebuilt OTA:
+## Prebuilt OTA
 
 WireOS is in the dropdown box in [https://devsetup.froggitti.net/](https://devsetup.froggitti.net/). Put your unlocked bot into recovery mode (hold the button for 15 seconds on the charger), head to the site, choose wireOS, then go through the process.
 
@@ -207,6 +198,7 @@ If you want to :P
 -	The camera programs and *some* of the BLE programs are being copied in rather than compiled.
 	-	Why not compile camera programs? Because I would have to add 2GB to the repo and figure out how to use the weird Qualcomm-specific toolchain.
 	-	Why not compile those BLE programs? `ankibluetoothd` and `hci_qcomm_init` are able to compile under GCC 15, but there is some weird low-level issue which makes them unable to properly communicate with a BLE library. So, for now, I am just copying pre-compiled ones in. I will probably try to fix this at some point.
+-   The kernel is still msm-3.18. Mainline might be possible. I was able to boot `msm8916-mainline` on a Vector and get some hardware peripherals working, but some fundamental ones (camera, Wi-Fi) will take quite a bit of work.
 
 ## How this upgrade was done
 
