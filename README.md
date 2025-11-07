@@ -77,7 +77,7 @@ sudo apt-get install -y sudo build-essential chrpath cpio debianutils \
     libxml-simple-perl libc6-dev libgl1-mesa-dev tofrodos libxml2-utils \
     xsltproc genisoimage gawk chrpath texinfo p7zip-full \
     android-sdk-libsparse-utils ruby subversion libssl-dev \
-    protobuf-compiler pkg-config nano libtinfo5 ninja-build clang ccache \
+    protobuf-compiler pkg-config nano ninja-build clang ccache \
     libc++-dev rsync cmake automake libtool
 ```
 
